@@ -1,0 +1,51 @@
+CAPI=2:
+
+name: cocotb:test:adder:1.0.0
+
+filesets:
+  verilog:
+    files: 
+      - examples/adder/hdl/adder.v
+    file_type: verilogSource
+
+  vhdl:
+    files: 
+      - examples/adder/hdl/adder.vhdl
+    file_type: vhdlSource
+
+  sim:
+    files:
+      - examples/adder/model/adder_model.py
+      - examples/adder/tests/test_adder.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [rtl]
+
+  sim-verilog:
+    default_tool: cocotb
+    filesets: [verilog, sim]
+    toplevel: adder
+    tools:
+      cocotb:
+        sim: icarus
+        module: test_adder
+        toplevel_lang: verilog
+
+  sim-vhdl:
+    default_tool: cocotb
+    filesets: [vhdl, sim]
+    toplevel: adder
+    tools:
+      cocotb:
+        sim: ghdl
+        module: test_adder
+        toplevel_lang: vhdl
+
+provider:
+  name: git
+  repo: git@github.com:cocotb/cocotb.git
+  version: master
+
+
