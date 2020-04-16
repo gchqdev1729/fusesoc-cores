@@ -1,0 +1,42 @@
+CAPI=2:
+
+name: cocotb:examples:mean:1.0.0
+
+filesets:
+  verilog:
+    files: 
+      - examples/mean/hdl/mean_sv.sv
+    file_type: verilogSource
+
+  vhdl:
+    files:
+      - examples/mean/hdl/mean_pkg.vhd
+      - examples/mean/hdl/mean.vhd
+    file_type: vhdlSource
+
+  sim:
+    files:
+      - examples/mean/tests/test_mean.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [vhdl, verilog]
+
+  sim:
+    default_tool: cocotb
+    filesets: [vhdl, verilog, sim]
+    toplevel: mean_sv
+    tools:
+      cocotb:
+        sim: modelsim
+        module: test_mean
+        toplevel_lang: verilog
+        compile_args: -mixedsvvh
+
+provider:
+  name: git
+  repo: git@github.com:cocotb/cocotb.git
+  version: master
+
+

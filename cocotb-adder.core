@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: cocotb:test:adder:1.0.0
+name: cocotb:examples:adder:1.0.0
 
 filesets:
   verilog:
@@ -21,7 +21,7 @@ filesets:
 
 targets:
   default:
-    filesets: [rtl]
+    filesets: [verilog]
 
   sim-verilog:
     default_tool: cocotb

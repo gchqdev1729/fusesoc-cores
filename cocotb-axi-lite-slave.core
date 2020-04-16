@@ -1,0 +1,42 @@
+CAPI=2:
+
+name: cocotb:examples:axi-lite-slave:1.0.0
+
+filesets:
+  verilog:
+    files: 
+      - examples/axi_lite_slave/hdl/axi_defines.v : {is_include_file : true}
+      - examples/axi_lite_slave/hdl/axi_lite_slave.v
+      - examples/axi_lite_slave/hdl/axi_lite_demo.v
+    file_type: verilogSource
+
+  tb:
+    files:
+      - examples/axi_lite_slave/hdl/tb_axi_lite_slave.v
+    file_type: verilogSource
+
+  cocotb:
+    files:
+       - examples/axi_lite_slave/tests/test_axi_lite_slave.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [verilog]
+
+  sim:
+    default_tool: cocotb
+    filesets: [verilog, tb, cocotb]
+    toplevel: tb_axi_lite_slave
+    tools:
+      cocotb:
+        sim: icarus
+        module: test_axi_lite_slave
+        toplevel_lang: verilog
+
+provider:
+  name: git
+  repo: git@github.com:cocotb/cocotb.git
+  version: master
+
+
