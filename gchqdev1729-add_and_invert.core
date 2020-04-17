@@ -35,3 +35,9 @@ targets:
         module: test_add_and_invert
         toplevel_lang: vhdl
         sim_args: -gWIDTH=8
+
+provider:
+  name: github
+  user: gchqdev1729
+  repo: cocotb-tests
+  version: master
