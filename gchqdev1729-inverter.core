@@ -1,0 +1,34 @@
+CAPI=2:
+
+name: gchqdev1729:cocotb-tests:inverter:1.0.0
+
+filesets:
+  hdl:
+    files: 
+      - inverter/hdl/inverter.vhd
+    file_type: vhdlSource
+
+  model:
+    files:
+      - inverter/model/model_inverter.py
+    file_type: pythonSource
+
+  test:
+    files:
+      - inverter/test/test_inverter.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [hdl, model]
+
+  sim:
+    default_tool: cocotb
+    filesets: [hdl, model, test]
+    toplevel: inverter
+    tools:
+      cocotb:
+        sim: ghdl
+        module: test_inverter
+        toplevel_lang: vhdl
+        sim_args: -gWIDTH=8

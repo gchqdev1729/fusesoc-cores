@@ -1,0 +1,37 @@
+CAPI=2:
+
+name: gchqdev1729:cocotb-tests:add-and-invert:1.0.0
+
+filesets:
+  hdl:
+    files: 
+      - add_and_invert/hdl/add_and_invert.vhd
+    file_type: vhdlSource
+    depend:
+      - gchqdev1729:cocotb-tests:inverter:1.0.0
+      - gchqdev1729:cocotb-tests:adder:1.0.0
+
+  model:
+    files:
+      - add_and_invert/model/model_add_and_invert.py
+    file_type: pythonSource
+
+  test:
+    files:
+      - add_and_invert/test/test_add_and_invert.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [hdl, model]
+
+  sim:
+    default_tool: cocotb
+    filesets: [hdl, model, test]
+    toplevel: add_and_invert
+    tools:
+      cocotb:
+        sim: ghdl
+        module: test_add_and_invert
+        toplevel_lang: vhdl
+        sim_args: -gWIDTH=8

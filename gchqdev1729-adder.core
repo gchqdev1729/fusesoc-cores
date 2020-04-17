@@ -1,0 +1,34 @@
+CAPI=2:
+
+name: gchqdev1729:cocotb-tests:adder:1.0.0
+
+filesets:
+  hdl:
+    files: 
+      - adder/hdl/adder.vhd
+    file_type: vhdlSource
+
+  model:
+    files:
+      - adder/model/model_adder.py
+    file_type: pythonSource
+
+  test:
+    files:
+      - adder/test/test_adder.py
+    file_type: pythonSource
+
+targets:
+  default:
+    filesets: [hdl, model]
+
+  sim:
+    default_tool: cocotb
+    filesets: [hdl, model, test]
+    toplevel: adder
+    tools:
+      cocotb:
+        sim: ghdl
+        module: test_adder
+        toplevel_lang: vhdl
+        sim_args: -gWIDTH=8
