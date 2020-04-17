@@ -35,8 +35,9 @@ targets:
         toplevel_lang: verilog
 
 provider:
-  name: git
-  repo: git@github.com:cocotb/cocotb.git
+  name: github
+  user: cocotb
+  repo: cocotb
   version: master
 
 

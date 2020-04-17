@@ -35,8 +35,9 @@ targets:
         compile_args: -mixedsvvh
 
 provider:
-  name: git
-  repo: git@github.com:cocotb/cocotb.git
+  name: github
+  user: cocotb
+  repo: cocotb
   version: master
 
 

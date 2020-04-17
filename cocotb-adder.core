@@ -44,8 +44,9 @@ targets:
         toplevel_lang: vhdl
 
 provider:
-  name: git
-  repo: git@github.com:cocotb/cocotb.git
+  name: github
+  user: cocotb
+  repo: cocotb
   version: master
 
 
