@@ -6,7 +6,7 @@ filesets:
   hdl:
     files: 
       - adder/hdl/adder.vhd
-    file_type: vhdlSource
+    file_type: vhdlSource-2008
 
   model:
     files:

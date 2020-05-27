@@ -6,7 +6,7 @@ filesets:
   hdl:
     files: 
       - add_and_invert/hdl/add_and_invert.vhd
-    file_type: vhdlSource
+    file_type: vhdlSource-2008
     depend:
       - gchqdev1729:cocotb-tests:inverter:1.0.0
       - gchqdev1729:cocotb-tests:adder:1.0.0

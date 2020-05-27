@@ -11,7 +11,7 @@ filesets:
   vhdl:
     files: 
       - examples/adder/hdl/adder.vhdl
-    file_type: vhdlSource
+    file_type: vhdlSource-2008
 
   sim:
     files:
