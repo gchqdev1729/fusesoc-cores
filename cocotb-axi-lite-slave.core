@@ -30,7 +30,7 @@ targets:
     toplevel: tb_axi_lite_slave
     tools:
       cocotb:
-        sim: icarus
+        simulator: icarus
         module: test_axi_lite_slave
         toplevel_lang: verilog
 

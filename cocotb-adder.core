@@ -29,7 +29,7 @@ targets:
     toplevel: adder
     tools:
       cocotb:
-        sim: icarus
+        simulator: icarus
         module: test_adder
         toplevel_lang: verilog
 
@@ -39,7 +39,7 @@ targets:
     toplevel: adder
     tools:
       cocotb:
-        sim: ghdl
+        simulator: ghdl
         module: test_adder
         toplevel_lang: vhdl
 

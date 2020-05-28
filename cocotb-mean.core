@@ -29,7 +29,7 @@ targets:
     toplevel: mean_sv
     tools:
       cocotb:
-        sim: modelsim
+        simulator: modelsim
         module: test_mean
         toplevel_lang: verilog
         compile_args: -mixedsvvh

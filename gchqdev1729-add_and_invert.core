@@ -21,6 +21,12 @@ filesets:
       - add_and_invert/test/test_add_and_invert.py
     file_type: pythonSource
 
+parameters:
+  WIDTH:
+    datatype: int
+    default: 8
+    paramtype: generic
+
 targets:
   default:
     filesets: [hdl, model]
@@ -28,13 +34,13 @@ targets:
   sim:
     default_tool: cocotb
     filesets: [hdl, model, test]
+    parameters: [WIDTH]
     toplevel: add_and_invert
     tools:
       cocotb:
-        sim: ghdl
+        simulator: ghdl
         module: test_add_and_invert
         toplevel_lang: vhdl
-        sim_args: -gWIDTH=8
 
 provider:
   name: github

@@ -18,6 +18,12 @@ filesets:
       - adder/test/test_adder.py
     file_type: pythonSource
 
+parameters:
+  WIDTH:
+    datatype: int
+    default: 8
+    paramtype: generic
+
 targets:
   default:
     filesets: [hdl, model]
@@ -25,13 +31,13 @@ targets:
   sim:
     default_tool: cocotb
     filesets: [hdl, model, test]
+    parameters: [WIDTH]
     toplevel: adder
     tools:
       cocotb:
-        sim: ghdl
+        simulator: ghdl
         module: test_adder
         toplevel_lang: vhdl
-        sim_args: -gWIDTH=8
 
 provider:
   name: github
